@@ -22,6 +22,7 @@ module.exports = {
 				loaders: ['babel-loader'],
 				include: [
 					path.resolve(__dirname, "src"),
+					path.resolve(__dirname, "src", "containers"),
 				],
 				test: /\.js$/,
 				plugins: ['transform-runtime'],
