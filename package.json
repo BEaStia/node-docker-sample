@@ -2,9 +2,10 @@
   "name": "nws",
   "version": "0.0.0",
   "private": true,
+  "main": "index.js",
   "scripts": {
     "start": "node out/server.js",
-    "build": "babel src -d out"
+    "build": "babel babel -d ./"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
@@ -16,6 +17,11 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0"
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.7",
+    "webpack": "^1.13.3",
+    "webpack-dev-middleware": "^1.8.4",
+    "webpack-hot-middleware": "^2.13.0"
   }
 }
