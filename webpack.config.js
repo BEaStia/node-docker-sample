@@ -8,32 +8,37 @@ module.exports = {
 		'webpack-hot-middleware/client',
 		'babel-polyfill',
 		'./src/index'
-	], output: {
-		path: path.join (__dirname, 'dist'),
+	],
+	output: {
+		path: path.join(__dirname, 'dist'),
 		filename: 'bundle.js',
 		publicPath: '/static/'
-	}, plugins: [
-		new webpack.optimize.OccurenceOrderPlugin (),
-		new webpack.HotModuleReplacementPlugin (),
-		new webpack.NoErrorsPlugin (),
+	},
+	plugins: [
+		new webpack.optimize.OccurenceOrderPlugin(),
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.NoErrorsPlugin(),
 		new NpmInstallPlugin(),
-	], module: {
-		preLoaders: [ //добавили ESlint в preloaders
+	],
+	module: {
+		preLoaders: [
 			{
 				test: /\.js$/,
-				loaders: [ 'eslint' ],
+				loaders: ['eslint'],
 				include: [
-					path.resolve (__dirname, "src"),
+					path.resolve(__dirname, "src"),
 				],
 			}
 		],
 		loaders: [
 			{
-				loaders: [ 'babel-loader' ],
-				include: [ path.resolve (__dirname, "src") ],
+				loaders: ['react-hot', 'babel-loader'],
+				include: [
+					path.resolve(__dirname, "src"),
+				],
 				test: /\.js$/,
-				plugins: [ 'transform-runtime' ],
+				plugins: ['transform-runtime'],
 			}
 		]
 	}
-};
+}
