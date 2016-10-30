@@ -15,9 +15,18 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin (),
 		new webpack.NoErrorsPlugin ()
 	], module: {
+		preLoaders: [ //добавили ESlint в preloaders
+			{
+				test: /\.js$/,
+				loaders: [ 'eslint' ],
+				include: [
+					path.resolve (__dirname, "src"),
+				],
+			}
+		],
 		loaders: [
 			{
-				loaders: [ 'react-hot', 'babel-loader' ],
+				loaders: [ 'babel-loader' ],
 				include: [ path.resolve (__dirname, "src") ],
 				test: /\.js$/,
 				plugins: [ 'transform-runtime' ],
